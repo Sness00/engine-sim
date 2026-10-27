@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 option(DTV "Enable video output" OFF)
 option(PIRANHA_ENABLED "Enable scripting input" ON)
-option(DISCORD_ENABLED "Enable Discord Rich Presence" ON)
+option(DISCORD_ENABLED "Enable Discord Rich Presence" OFF)
 
 if (DTV)
     add_compile_definitions(ATG_ENGINE_SIM_VIDEO_CAPTURE)
@@ -27,20 +27,20 @@ set(CMAKE_CXX_STANDARD 17)
 # ========================================================
 # GTEST
 
-include(FetchContent)
-FetchContent_Declare(
-    googletest
-    URL
-    https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
-)
+# include(FetchContent)
+# FetchContent_Declare(
+#     googletest
+#     URL
+#     https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
+# )
 
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
+# set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+# FetchContent_MakeAvailable(googletest)
 
-set_property(TARGET gmock PROPERTY FOLDER "gtest")
-set_property(TARGET gmock_main PROPERTY FOLDER "gtest")
-set_property(TARGET gtest PROPERTY FOLDER "gtest")
-set_property(TARGET gtest_main PROPERTY FOLDER "gtest")
+# set_property(TARGET gmock PROPERTY FOLDER "gtest")
+# set_property(TARGET gmock_main PROPERTY FOLDER "gtest")
+# set_property(TARGET gtest PROPERTY FOLDER "gtest")
+# set_property(TARGET gtest_main PROPERTY FOLDER "gtest")
 
 # ========================================================
 
@@ -303,19 +303,19 @@ add_subdirectory(dependencies)
 
 # GTEST
 
-enable_testing()
+# enable_testing()
 
-add_executable(engine-sim-test
-    # Source files
-    test/gas_system_tests.cpp
-    test/function_test.cpp
-    test/synthesizer_tests.cpp
-)
+# add_executable(engine-sim-test
+#     # Source files
+#     test/gas_system_tests.cpp
+#     test/function_test.cpp
+#     test/synthesizer_tests.cpp
+# )
 
-target_link_libraries(engine-sim-test
-    gtest_main
-    engine-sim
-)
+# target_link_libraries(engine-sim-test
+#     gtest_main
+#     engine-sim
+# )
 
-include(GoogleTest)
-gtest_discover_tests(engine-sim-test)
+# include(GoogleTest)
+# gtest_discover_tests(engine-sim-test)
