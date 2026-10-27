@@ -24,7 +24,7 @@
 #include "../discord/Discord.h"
 #endif
 
-std::string EngineSimApplication::s_buildVersion = "0.1.12a";
+std::string EngineSimApplication::s_buildVersion = "0.1.12b";
 
 EngineSimApplication::EngineSimApplication() {
     m_assetPath = "";
@@ -649,6 +649,8 @@ void EngineSimApplication::loadScript() {
         vehParams.dragCoefficient = 0.25;
         vehParams.crossSectionArea = units::distance(6.0, units::foot) * units::distance(6.0, units::foot);
         vehParams.rollingResistance = 2000.0;
+
+        vehParams.maxBrakeForce = units::force(15666.0, units::N);
         vehicle = new Vehicle;
         vehicle->initialize(vehParams);
     }
@@ -662,6 +664,8 @@ void EngineSimApplication::loadScript() {
         transmission = new Transmission;
         transmission->initialize(tParams);
     }
+
+
 
     loadEngine(engine, vehicle, transmission);
     refreshUserInterface();
@@ -897,6 +901,20 @@ void EngineSimApplication::processEngineInput() {
         else {
             m_infoCluster->setLogMessage("SHIFTED TO NEUTRAL");
         }
+    }
+
+    //Vehicle* vehicle = m_simulator->getVehicle();
+
+
+    const bool brakePressed = m_engine.IsKeyDown(ysKey::Code::OEM_Period);
+    m_targetBrakePressure = brakePressed ? 1.0 : 0.0;
+
+    const double responseTime = brakePressed ? 0.08 : 0.04;
+    const double brakeSmoothing = dt / (dt + responseTime);
+
+    m_brakePressure = m_brakePressure * (1.0 - brakeSmoothing) + m_targetBrakePressure * brakeSmoothing;
+    if (m_vehicle != nullptr) {
+        m_vehicle->setBrakePressure(brakePressed ? 1.0 : 0.0);
     }
 
     if (m_engine.IsKeyDown(ysKey::Code::T)) {

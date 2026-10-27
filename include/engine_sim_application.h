@@ -9,7 +9,7 @@
 #include "dynamometer.h"
 #include "oscilloscope.h"
 #include "audio_buffer.h"
-#include "convolution_filter.h"
+//#include "convolution_filter.h"
 #include "shaders.h"
 #include "engine_view.h"
 #include "right_gauge_cluster.h"
@@ -101,6 +101,10 @@ class EngineSimApplication {
 
         double m_clutchPressure = 1.0;
         double m_targetClutchPressure = 1.0;
+
+        double m_brakePressure = 0.0;
+        double m_targetBrakePressure = 1.0;
+
         int m_lastMouseWheel = 0;
 
     protected:

@@ -1,9 +1,10 @@
 #include "../include/compiler.h"
 
-es_script::Compiler::Output *es_script::Compiler::s_output = nullptr;
+es_script::Compiler::Output *es_script::Compiler::s_output;
 
 es_script::Compiler::Compiler() {
     m_compiler = nullptr;
+    s_output = nullptr;
 }
 
 es_script::Compiler::~Compiler() {

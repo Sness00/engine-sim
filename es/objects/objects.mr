@@ -608,6 +608,8 @@ public node vehicle => __engine_sim__vehicle {
     input tire_radius [float]: 10 * units.inch;
     input rolling_resistance [float]: 2000;
 
+    input max_brake_force [float]: 8000 * units.N;
+
     alias output __out [vehicle_channel];
 }
 

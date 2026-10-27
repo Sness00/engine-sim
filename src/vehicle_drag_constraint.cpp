@@ -15,12 +15,12 @@ VehicleDragConstraint::~VehicleDragConstraint() {
     /* void */
 }
 
-void VehicleDragConstraint::initialize(atg_scs::RigidBody *rotatingMass, Vehicle *vehicle) {
+void VehicleDragConstraint::initialize(atg_scs::RigidBody* rotatingMass, Vehicle* vehicle) {
     m_bodies[0] = rotatingMass;
     m_vehicle = vehicle;
 }
 
-void VehicleDragConstraint::calculate(Output *output, atg_scs::SystemState *system) {
+void VehicleDragConstraint::calculate(Output* output, atg_scs::SystemState* system) {
     output->C[0] = 0;
 
     output->J[0][0] = 0.0;
@@ -53,7 +53,15 @@ void VehicleDragConstraint::calculate(Output *output, atg_scs::SystemState *syst
     const double A = m_vehicle->getCrossSectionArea();
     const double rollingResistance = m_vehicle->getRollingResistance();
 
+    const double aerodynamicDrag = 0.5 * airDensity * v_squared * c_d * A;
+    const double brakingForce = m_vehicle->getBrakePressure() * m_vehicle->getMaxBrakeForce();
+
+    const double brakeActivationSpeed = units::distance(0.05, units::m);
+    const double activeBrakingForce = (v > brakeActivationSpeed) ? brakingForce : 0.0;
+    const double totalResistiveForce = rollingResistance + aerodynamicDrag + activeBrakingForce;
+
     output->limits[0][0] =
-        -m_vehicle->linearForceToVirtualTorque(rollingResistance + 0.5 * airDensity * v_squared * c_d * A);
+        /*-m_vehicle->linearForceToVirtualTorque(rollingResistance + 0.5 * airDensity * v_squared * c_d * A);*/
+        -m_vehicle->linearForceToVirtualTorque(totalResistiveForce);
     output->limits[0][1] = 0;
 }
