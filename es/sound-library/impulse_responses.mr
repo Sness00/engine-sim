@@ -1,7 +1,9 @@
+// Contains all "smooth" impulse responses from smooth_01 to smooth_49 //
+
 private import "engine_sim.mr"
 
 public node impulse_response_library {
-    output default_0: impulse_response(filename: "smooth/smooth_39.wav", volume: 0.001);
+    output default_0: impulse_response(filename: "smooth/smooth_39.wav", volume: 0.001); // smooth_39 is already here
 
     output real_engine_0:
         impulse_response(filename: "archive/test_engine_14_eq_adjusted_16.wav", volume: 0.001);
@@ -23,4 +25,101 @@ public node impulse_response_library {
         impulse_response(filename: "new/minimal_muffling_02.wav", volume: 0.01);
     output minimal_muffling_03:
         impulse_response(filename: "new/minimal_muffling_03.wav", volume: 0.01);
+
+    output smooth_01:
+        impulse_response("smooth/smooth_01.wav", volume: 0.001);
+    output smooth_02:
+        impulse_response("smooth/smooth_02.wav", volume: 0.001);
+    output smooth_03:
+        impulse_response("smooth/smooth_03.wav", volume: 0.001);
+    output smooth_04:
+        impulse_response("smooth/smooth_04.wav", volume: 0.001);
+    output smooth_05:
+        impulse_response("smooth/smooth_05.wav", volume: 0.001);
+    output smooth_06:
+        impulse_response("smooth/smooth_06.wav", volume: 0.001);
+    output smooth_07:
+        impulse_response("smooth/smooth_07.wav", volume: 0.001);
+    output smooth_08:
+        impulse_response("smooth/smooth_08.wav", volume: 0.001);
+    output smooth_09:
+        impulse_response("smooth/smooth_09.wav", volume: 0.001);
+    output smooth_10:
+        impulse_response("smooth/smooth_10.wav", volume: 0.001);
+    output smooth_11:
+        impulse_response("smooth/smooth_11.wav", volume: 0.001);
+    output smooth_12:
+        impulse_response("smooth/smooth_12.wav", volume: 0.001);
+    output smooth_13:
+        impulse_response("smooth/smooth_13.wav", volume: 0.001);
+    output smooth_14:
+        impulse_response("smooth/smooth_14.wav", volume: 0.001);
+    output smooth_15:
+        impulse_response("smooth/smooth_15.wav", volume: 0.001);
+    output smooth_16:
+        impulse_response("smooth/smooth_16.wav", volume: 0.001);
+    output smooth_17:
+        impulse_response("smooth/smooth_17.wav", volume: 0.001);
+    output smooth_18:
+        impulse_response("smooth/smooth_18.wav", volume: 0.001);
+    output smooth_19:
+        impulse_response("smooth/smooth_19.wav", volume: 0.001);
+    output smooth_20:
+        impulse_response("smooth/smooth_20.wav", volume: 0.001);
+    output smooth_21:
+        impulse_response("smooth/smooth_21.wav", volume: 0.001);
+    output smooth_22:
+        impulse_response("smooth/smooth_22.wav", volume: 0.001);
+    output smooth_23:
+        impulse_response("smooth/smooth_23.wav", volume: 0.001);
+    output smooth_24:
+        impulse_response("smooth/smooth_24.wav", volume: 0.001);
+    output smooth_25:
+        impulse_response("smooth/smooth_25.wav", volume: 0.001);
+    output smooth_26:
+        impulse_response("smooth/smooth_26.wav", volume: 0.001);
+    output smooth_27:
+        impulse_response("smooth/smooth_27.wav", volume: 0.001);
+    output smooth_28:
+        impulse_response("smooth/smooth_28.wav", volume: 0.001);
+    output smooth_29:
+        impulse_response("smooth/smooth_29.wav", volume: 0.001);
+    output smooth_30:
+        impulse_response("smooth/smooth_30.wav", volume: 0.001);
+    output smooth_31:
+        impulse_response("smooth/smooth_31.wav", volume: 0.001);
+    output smooth_32:
+        impulse_response("smooth/smooth_32.wav", volume: 0.001);
+    output smooth_33:
+        impulse_response("smooth/smooth_33.wav", volume: 0.001);
+    output smooth_34:
+        impulse_response("smooth/smooth_34.wav", volume: 0.001);
+    output smooth_35:
+        impulse_response("smooth/smooth_35.wav", volume: 0.001);
+    output smooth_36:
+        impulse_response("smooth/smooth_36.wav", volume: 0.001);
+    output smooth_37:
+        impulse_response("smooth/smooth_37.wav", volume: 0.001);
+    output smooth_38:
+        impulse_response("smooth/smooth_38.wav", volume: 0.001);
+    output smooth_40:
+        impulse_response("smooth/smooth_40.wav", volume: 0.001);
+    output smooth_41:
+        impulse_response("smooth/smooth_41.wav", volume: 0.001);
+    output smooth_42:
+        impulse_response("smooth/smooth_42.wav", volume: 0.001);
+    output smooth_43:
+        impulse_response("smooth/smooth_43.wav", volume: 0.001);
+    output smooth_44:
+        impulse_response("smooth/smooth_44.wav", volume: 0.001);
+    output smooth_45:
+        impulse_response("smooth/smooth_45.wav", volume: 0.001);
+    output smooth_46:
+        impulse_response("smooth/smooth_46.wav", volume: 0.001);
+    output smooth_47:
+        impulse_response("smooth/smooth_47.wav", volume: 0.001);
+    output smooth_48:
+        impulse_response("smooth/smooth_48.wav", volume: 0.001);
+    output smooth_49:
+        impulse_response("smooth/smooth_49.wav", volume: 0.001);
 }
